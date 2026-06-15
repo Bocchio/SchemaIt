@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate standalone build
+        run: |
+          f=index.html
+          test -f "$f" || { echo "missing $f"; exit 1; }
+          size=$(wc -c < "$f")
+          echo "size: $size bytes"
+          [ "$size" -gt 1000000 ] || { echo "file suspiciously small"; exit 1; }
+          grep -q "<title>SchemaIt" "$f" || { echo "title marker missing"; exit 1; }
+          # everything must be inlined — no external resource may be pulled in
+          if grep -Eqi '<(script|link|img|image|use)[^>]*(src|href)="(https?:|//)' "$f"; then
+            echo "external resource reference found — build is not self-contained"; exit 1
+          fi
+          echo "OK: self-contained standalone"
