@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="200" height="40" role="img" aria-label="SchemaIt">
+  <defs>
+    <linearGradient id="schmark2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b7fce"/>
+      <stop offset="1" stop-color="#274a78"/>
+    </linearGradient>
+  </defs>
+  <!-- icon mark -->
+  <g transform="translate(4 4)">
+    <rect x="1" y="1" width="30" height="30" rx="8" fill="url(#schmark2)"/>
+    <path d="M6 16 H10 L11.5 11.5 L14.5 20.5 L17.5 11.5 L20.5 20.5 L22 16 H26"
+          fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="6" cy="16" r="2.1" fill="#ffffff"/>
+    <circle cx="26" cy="16" r="2.1" fill="#ffffff"/>
+  </g>
+  <!-- wordmark -->
+  <text x="46" y="27"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        font-size="22" font-weight="700" letter-spacing="0.2">
+    <tspan fill="#274a78">Schema</tspan><tspan fill="#3b7fce">It</tspan>
+  </text>
+</svg>
